@@ -1,0 +1,193 @@
+:root {
+    --verde-manzana: #8DB600;
+    --rojo-manzana: #FF0800;
+    --rosa-claro: #FFF0F0;
+    --verde-claro: #F4F9E0;
+    --blanco: #FFFFFF;
+    --text: #333;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f0f0f0;
+    color: var(--text);
+    overflow-x: hidden;
+}
+
+.triptico-wrapper {
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+}
+
+.panel {
+    flex: 0 0 100%;
+    height: 100%;
+    scroll-snap-align: start;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+    overflow: hidden;
+}
+
+/* Escritorio: 3 columnas */
+@media (min-width: 900px) {
+    .panel {
+        flex: 0 0 33.33%;
+    }
+}
+
+/* Estilos Ventana 1 (Verde) */
+.panel-verde {
+    background: linear-gradient(rgba(244, 249, 224, 0.85), rgba(244, 249, 224, 0.85)), url('../assets/img1.jpeg');
+    background-size: cover;
+    background-position: center;
+    border-right: 2px dashed var(--verde-manzana);
+}
+
+.panel-verde .shape-top {
+    position: absolute;
+    top: -50px;
+    left: -50px;
+    width: 200px;
+    height: 200px;
+    background: var(--verde-manzana);
+    border-radius: 50%;
+    opacity: 0.3;
+}
+
+/* Estilos Ventana 2 (Blanco) */
+.panel-blanco {
+    background: linear-gradient(rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.85)), url('../assets/img2.jpeg');
+    background-size: cover;
+    background-position: center;
+    z-index: 2;
+}
+
+/* Estilos Ventana 3 (Rojo) */
+.panel-rojo {
+    background: linear-gradient(rgba(255, 240, 240, 0.85), rgba(255, 240, 240, 0.85)), url('../assets/img3.jpeg');
+    background-size: cover;
+    background-position: center;
+    border-left: 2px dashed var(--rojo-manzana);
+}
+
+/* Elementos Comunes */
+.content {
+    text-align: center;
+    max-width: 400px;
+    z-index: 5;
+}
+
+h1, h2 {
+    font-family: 'Fredoka', sans-serif;
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+h1 span, h2 span {
+    display: block;
+    color: var(--verde-manzana);
+}
+
+.panel-rojo h1 span {
+    color: var(--rojo-manzana);
+}
+
+/* Decoraciones Estilo 'Lindo' */
+.badge {
+    background: var(--rojo-manzana);
+    color: white;
+    display: inline-block;
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    margin-bottom: 10px;
+}
+
+.info-box {
+    background: white;
+    padding: 20px;
+    border-radius: 30px 0 30px 0;
+    box-shadow: 10px 10px 0 var(--verde-manzana);
+    margin-top: 20px;
+}
+
+.main-image img {
+    width: 200px;
+    height: 200px;
+    object-fit: contain;
+    margin-bottom: 20px;
+    animation: floating 3s ease-in-out infinite;
+}
+
+@keyframes floating {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-15px); }
+    100% { transform: translateY(0px); }
+}
+
+.beneficios-list {
+    list-style: none;
+    text-align: left;
+    display: inline-block;
+}
+
+.beneficios-list li {
+    margin: 10px 0;
+    font-weight: 500;
+}
+
+.dot {
+    height: 12px;
+    width: 12px;
+    border-radius: 50%;
+    display: inline-block;
+    margin-right: 10px;
+}
+
+.dot.verde { background: var(--verde-manzana); }
+.dot.rojo { background: var(--rojo-manzana); }
+
+.contact-card {
+    background: white;
+    padding: 25px;
+    border-radius: 20px;
+    border: 3px solid var(--rojo-manzana);
+    margin-bottom: 20px;
+}
+
+.cta-button {
+    background: var(--rojo-manzana);
+    color: white;
+    padding: 15px 30px;
+    border-radius: 50px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.2s;
+    box-shadow: 0 5px 15px rgba(255,8,0,0.3);
+}
+
+.cta-button:hover {
+    transform: scale(1.1);
+}
+
+.placeholder-logo {
+    font-family: 'Fredoka', sans-serif;
+    font-size: 1.5rem;
+    color: var(--verde-manzana);
+    border: 2px solid var(--verde-manzana);
+    padding: 10px;
+    margin-bottom: 30px;
+    border-radius: 10px;
+}
