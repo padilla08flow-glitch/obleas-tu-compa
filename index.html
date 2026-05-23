@@ -10,68 +10,137 @@
 </head>
 <body>
 
-    <div class="triptico-wrapper">
-        <section class="panel panel-verde">
-            <div class="shape-top"></div>
-            <div class="content">
-                <div class="badge">Novedad</div>
-                <h1>SOBRE <span>Nosotros</span></h1>
-                <p>Las <strong>Obleas “Tu Compa”</strong> son un snack innovador elaborado a base de chapulines. Combinamos tradición y modernidad en cada oblea de 5g.</p>
-                
-                <div class="info-box">
-                    <h3>Nuestra Misión</h3>
-                    <p>Transformar la manera de consumir chapulines con una presentación atractiva y accesible para todos.</p>
+    <button class="lang-toggle-btn" id="langBtn">
+        <i class="fa-solid fa-language"></i> <span>English</span>
+    </button>
+
+    <div class="triptico-wrapper" id="tripticoContainer">
+        
+        <section class="panel">
+            <div class="panel-card-inner">
+                <div class="panel-face front-face panel-verde">
+                    <div class="shape-top"></div>
+                    <div class="content">
+                        <div class="badge">Novedad</div>
+                        <h1>SOBRE <span>Nosotros</span></h1>
+                        <p>Las <strong>Obleas “Tu Compa”</strong> son un snack innovador elaborado a base de chapulines. Combinamos tradición y modernidad en cada oblea de 5g.</p>
+                        
+                        <div class="info-box">
+                            <h3>Nuestra Misión</h3>
+                            <p>Transformar la manera de consumir chapulines con una presentación atractiva y accesible para todos.</p>
+                        </div>
+                        <br>
+                        <div class="sticker">¡100% Ocoteco!</div>
+                    </div>
                 </div>
-                <br>
-                <div class="sticker">¡100% Mexicano!</div>
+                <div class="panel-face back-face panel-verde">
+                    <div class="shape-top"></div>
+                    <div class="content">
+                        <div class="badge">New</div>
+                        <h1>ABOUT <span>Us</span></h1>
+                        <p><strong>Obleas “Tu Compa”</strong> are an innovative snack made from grasshoppers. We combine tradition and modernity in every 5g wafer.</p>
+                        
+                        <div class="info-box">
+                            <h3>Our Mission</h3>
+                            <p>To transform the way grasshoppers are consumed by providing an attractive and accessible presentation for everyone.</p>
+                        </div>
+                        <br>
+                        <div class="sticker">100% from Ocotlán!</div>
+                    </div>
+                </div>
             </div>
         </section>
 
-        <section class="panel panel-blanco">
-            <div class="content">
-                <div class="logo-container">
-                    <div class="placeholder-logo">TU COMPA</div>
-                </div>
+        <section class="panel">
+            <div class="panel-card-inner">
+                <div class="panel-face front-face panel-blanco">
+                    <div class="content">
+                        <div class="logo-container">
+                            <div class="placeholder-logo">TU COMPA</div>
+                        </div>
 
-                <div class="main-image">
-                    <img src="../assets/logoTransparente.png" alt="Obleas"> 
-                </div>
+                        <div class="main-image">
+                            <img src="../assets/logo.jpeg" alt="Obleas" style="width: 200px; height: auto;"> 
+                        </div>
 
-                <h3 style="font-family: 'Fredoka', sans-serif; color: var(--verde-manzana); margin-bottom: 5px;">¿Por qué chapulines?</h3>
-                <p style="font-size: 0.9rem; margin-bottom: 15px;">Los chapulines son considerados un alimento con alto valor nutrimental gracias a su contenido de proteínas, vitaminas y minerales.</p>
-                
-                <ul class="beneficios-list">
-                    <p style="font-weight: bold; margin-bottom: 10px;">Beneficios de los chapulines:</p>
-                    <li><span class="dot verde"></span> Alto en Proteína</li>
-                    <li><span class="dot rojo"></span> Bajo en Grasas</li>
-                    <li><span class="dot verde"></span> Sustentable</li>
-                    <li><span class="dot rojo"></span> Hierro y Calcio</li>
-                </ul>
+                        <h3 style="font-family: 'Fredoka', sans-serif; color: var(--verde-manzana); margin-bottom: 5px;">¿Por qué chapulines?</h3>
+                        <p style="font-size: 0.9rem; margin-bottom: 15px;">Los chapulines son considerados un alimento con alto valor nutrimental gracias a su contenido de proteínas, vitamins y minerales.</p>
+                        
+                        <ul class="beneficios-list">
+                            <p style="font-weight: bold; margin-bottom: 10px;">Beneficios de los chapulines:</p>
+                            <li><span class="dot verde"></span> Alto en Proteína</li>
+                            <li><span class="dot rojo"></span> Bajo en Grasas</li>
+                            <li><span class="dot verde"></span> Sustentable</li>
+                            <li><span class="dot rojo"></span> Hierro y Calcio</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="panel-face back-face panel-blanco">
+                    <div class="content">
+                        <div class="logo-container">
+                            <div class="placeholder-logo">TU COMPA</div>
+                        </div>
+
+                        <div class="main-image">
+                            <img src="../assets/logo.jpeg" alt="Obleas" style="width: 200px; height: auto;"> 
+                        </div>
+
+                        <h3 style="font-family: 'Fredoka', sans-serif; color: var(--verde-manzana); margin-bottom: 5px;">Why grasshoppers?</h3>
+                        <p style="font-size: 0.9rem; margin-bottom: 15px;">Grasshoppers are considered a highly nutritious food thanks to their rich content of protein, vitamins, and minerals.</p>
+                        
+                        <ul class="beneficios-list">
+                            <p style="font-weight: bold; margin-bottom: 10px;">Benefits of grasshoppers:</p>
+                            <li><span class="dot verde"></span> High in Protein</li>
+                            <li><span class="dot rojo"></span> Low in Fat</li>
+                            <li><span class="dot verde"></span> Sustainable</li>
+                            <li><span class="dot rojo"></span> Iron & Calcium</li>
+                        </ul>
+                    </div>
+                </div>
             </div>
         </section>
 
-        <section class="panel panel-rojo">
-            <div class="shape-bottom"></div>
-            <div class="content">
-                <h1>BENEFICIOS <span>Obleas "Tu Compa"</span></h1>
+        <section class="panel">
+            <div class="panel-card-inner">
+                <div class="panel-face front-face panel-rojo">
+                    <div class="shape-bottom"></div>
+                    <div class="content">
+                        <h1>BENEFICIOS <span>Obleas "Tu Compa"</span></h1>
 
-                <div class="beneficios-info" style="text-align: left; margin-top: 15px;">
-                    <p><strong>✔️ Nutritivas</strong></p>
-                    <p style="margin-bottom: 12px; font-size: 0.95rem;">Aportan proteínas importantes para el cuerpo y ayudan al desarrollo y mantenimiento muscular.</p>
+                        <div class="beneficios-info" style="text-align: left; margin-top: 15px;">
+                            <p><strong>✔️ Nutritivas</strong></p>
+                            <p style="margin-bottom: 12px; font-size: 0.95rem;">Aportan proteínas importantes para el cuerpo y ayudan al desarrollo y mantenimiento muscular.</p>
 
-                    <p><strong>✔️ Prácticas</strong></p>
-                    <p style="margin-bottom: 12px; font-size: 0.95rem;">Su presentación en oblea permite consumirlas fácilmente en cualquier momento del día.</p>
+                            <p><strong>✔️ Prácticas</strong></p>
+                            <p style="margin-bottom: 12px; font-size: 0.95rem;">Su presentación en oblea permite consumirlas fácilmente en cualquier momento del día.</p>
 
-                    <p><strong>✔️ Deliciosas</strong></p>
-                    <p style="margin-bottom: 12px; font-size: 0.95rem;">Combinan tradición y sabor en un snack diferente e innovador.</p>
+                            <p><strong>✔️ Deliciosas</strong></p>
+                            <p style="margin-bottom: 12px; font-size: 0.95rem;">Combinan tradición y sabor en un snack diferente e innovador.</p>
 
-                    <p><strong>✔️ Naturales</strong></p>
-                    <p style="margin-bottom: 12px; font-size: 0.95rem;">Elaboradas con ingredientes cuidadosamente seleccionados.</p>
+                            <p><strong>✔️ Naturales</strong></p>
+                            <p style="margin-bottom: 12px; font-size: 0.95rem;">Elaboradas con ingredientes cuidadosamente seleccionados.</p>
+                        </div>
+                    </div>
                 </div>
+                <div class="panel-face back-face panel-rojo">
+                    <div class="shape-bottom"></div>
+                    <div class="content">
+                        <h1>BENEFITS <span>Obleas "Tu Compa"</span></h1>
 
-                <div style="margin-top: 25px;">
-                    <p>⸻</p>
-                    <p><em>Información nutrimental aproximada</em></p>
+                        <div class="beneficios-info" style="text-align: left; margin-top: 15px;">
+                            <p><strong>✔️ Nutritious</strong></p>
+                            <p style="margin-bottom: 12px; font-size: 0.95rem;">They provide essential proteins for the body, aiding in muscle development and maintenance.</p>
+
+                            <p><strong>✔️ Convenient</strong></p>
+                            <p style="margin-bottom: 12px; font-size: 0.95rem;">Their wafer format makes them easy to enjoy at any time of the day.</p>
+
+                            <p><strong>✔️ Delicious</strong></p>
+                            <p style="margin-bottom: 12px; font-size: 0.95rem;">They blend tradition and flavor into a unique and innovative snack.</p>
+
+                            <p><strong>✔️ Natural</strong></p>
+                            <p style="margin-bottom: 12px; font-size: 0.95rem;">Carefully crafted using strictly selected ingredients.</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>

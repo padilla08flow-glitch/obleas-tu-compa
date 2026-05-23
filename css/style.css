@@ -18,176 +18,201 @@ body {
     background-color: #f0f0f0;
     color: var(--text);
     overflow-x: hidden;
+    /* Soporte para la altura dinámica calculated por JS */
+    height: calc(var(--vh, 1vh) * 100);
 }
 
+/* Contenedor del Tríptico */
 .triptico-wrapper {
     display: flex;
     width: 100vw;
     height: 100vh;
+    height: calc(var(--vh, 1vh) * 100);
     overflow-x: auto;
     scroll-snap-type: x mandatory;
+    perspective: 1500px; /* Le da el efecto de profundidad 3D al girar */
 }
 
+/* Cada una de las 3 secciones principales */
 .panel {
     flex: 0 0 100%;
     height: 100%;
     scroll-snap-align: start;
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 40px;
-    overflow: hidden;
+    padding: 20px;
 }
 
-/* Escritorio: 3 columnas */
 @media (min-width: 900px) {
     .panel {
         flex: 0 0 33.33%;
     }
 }
 
-/* Estilos Ventana 1 (Verde) */
-.panel-verde {
-    background: linear-gradient(rgba(244, 249, 224, 0.85), rgba(244, 249, 224, 0.85)), url('../assets/img1.jpeg');
-    background-size: cover;
-    background-position: center;
-    border-right: 2px dashed var(--verde-manzana);
+/* El contenedor interno que realmente da la vuelta */
+.panel-card-inner {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1); /* Giro suave de tipo folleto */
 }
 
-.panel-verde .shape-top {
+/* Clase que activa el JavaScript para voltear */
+.triptico-wrapper.flipped .panel-card-inner {
+    transform: rotateY(180deg);
+}
+
+/* Propiedades comunes de las caras (frente y atrás) */
+.panel-face {
     position: absolute;
-    top: -50px;
-    left: -50px;
-    width: 200px;
-    height: 200px;
-    background: var(--verde-manzana);
-    border-radius: 50%;
-    opacity: 0.3;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden; /* Oculta la espalda mientras se ve el frente */
+    border-radius: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
 }
 
-/* Estilos Ventana 2 (Blanco) */
-.panel-blanco {
-    background: linear-gradient(rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.85)), url('../assets/img2.jpeg');
-    background-size: cover;
-    background-position: center;
-    z-index: 2;
+/* La cara de atrás (Inglés) empieza rota para que al girar quede derecha */
+.back-face {
+    transform: rotateY(180deg);
 }
 
-/* Estilos Ventana 3 (Rojo) */
-.panel-rojo {
-    background: linear-gradient(rgba(255, 240, 240, 0.85), rgba(255, 240, 240, 0.85)), url('../assets/img3.jpeg');
-    background-size: cover;
-    background-position: center;
-    border-left: 2px dashed var(--rojo-manzana);
-}
+/* Diseños individuales de los fondos */
+.panel-verde { background-color: var(--verde-claro); }
+.panel-blanco { background-color: var(--blanco); box-shadow: 0 0 15px rgba(0,0,0,0.05); }
+.panel-rojo { background-color: var(--rosa-claro); }
 
-/* Elementos Comunes */
 .content {
     text-align: center;
-    max-width: 400px;
+    max-width: 380px;
     z-index: 5;
-}
-
-h1, h2 {
-    font-family: 'Fredoka', sans-serif;
-    font-size: 2.5rem;
-    margin-bottom: 20px;
-}
-
-h1 span, h2 span {
-    display: block;
-    color: var(--verde-manzana);
-}
-
-.panel-rojo h1 span {
-    color: var(--rojo-manzana);
-}
-
-/* Decoraciones Estilo 'Lindo' */
-.badge {
-    background: var(--rojo-manzana);
-    color: white;
-    display: inline-block;
-    padding: 5px 15px;
-    border-radius: 20px;
-    font-size: 0.8rem;
-    margin-bottom: 10px;
-}
-
-.info-box {
-    background: white;
     padding: 20px;
-    border-radius: 30px 0 30px 0;
-    box-shadow: 10px 10px 0 var(--verde-manzana);
-    margin-top: 20px;
 }
 
-.main-image img {
-    width: 200px;
-    height: 200px;
-    object-fit: contain;
-    margin-bottom: 20px;
-    animation: floating 3s ease-in-out infinite;
-}
-
-@keyframes floating {
-    0% { transform: translateY(0px); }
-    50% { transform: translateY(-15px); }
-    100% { transform: translateY(0px); }
-}
-
-.beneficios-list {
-    list-style: none;
-    text-align: left;
-    display: inline-block;
-}
-
-.beneficios-list li {
-    margin: 10px 0;
-    font-weight: 500;
-}
-
-.dot {
-    height: 12px;
-    width: 12px;
-    border-radius: 50%;
-    display: inline-block;
-    margin-right: 10px;
-}
-
-.dot.verde { background: var(--verde-manzana); }
-.dot.rojo { background: var(--rojo-manzana); }
-
-.contact-card {
-    background: white;
-    padding: 25px;
-    border-radius: 20px;
-    border: 3px solid var(--rojo-manzana);
-    margin-bottom: 20px;
-}
-
-.cta-button {
-    background: var(--rojo-manzana);
-    color: white;
-    padding: 15px 30px;
-    border-radius: 50px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: transform 0.2s;
-    box-shadow: 0 5px 15px rgba(255,8,0,0.3);
-}
-
-.cta-button:hover {
-    transform: scale(1.1);
-}
-
+/* Estilos adicionales originales */
 .placeholder-logo {
     font-family: 'Fredoka', sans-serif;
     font-size: 1.5rem;
     color: var(--verde-manzana);
     border: 2px solid var(--verde-manzana);
-    padding: 10px;
-    margin-bottom: 30px;
-    border-radius: 10px;
+    padding: 5px 15px;
+    display: inline-block;
+    border-radius: 8px;
+    margin-bottom: 10px;
 }
+
+.dot {
+    height: 10px;
+    width: 10px;
+    border-radius: 50%;
+    display: inline-block;
+    margin-right: 5px;
+}
+.dot.verde { background: var(--verde-manzana); }
+.dot.rojo { background: var(--rojo-manzana); }
+.beneficios-list { list-style: none; text-align: left; display: inline-block; }
+.beneficios-list li { margin: 5px 0; }
+.badge { background: var(--rojo-manzana); color: white; padding: 4px 12px; border-radius: 20px; font-size: 0.8rem; display: inline-block; margin-bottom: 10px; }
+.info-box { background: white; padding: 15px; border-radius: 15px; box-shadow: 5px 5px 0 var(--verde-manzana); margin-top: 15px; border: 1px solid #ddd; }
+
+/* Botón flotante moderno de Idioma */
+.lang-toggle-btn {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 100;
+    background: var(--verde-manzana);
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    font-family: 'Fredoka', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    border-radius: 50px;
+    cursor: pointer;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.3s ease;
+}
+
+.lang-toggle-btn:hover {
+    transform: scale(1.05);
+    background: var(--rojo-manzana);
+}
+
+/* Estilos decorativos para fondos */
+.shape-top {
+    position: absolute;
+    top: -30px;
+    left: -30px;
+    width: 140px;
+    height: 140px;
+    background: rgba(141, 182, 0, 0.15);
+    border-radius: 50%;
+}
+.shape-bottom {
+    position: absolute;
+    bottom: -40px;
+    right: -40px;
+    width: 160px;
+    height: 160px;
+    background: rgba(255, 8, 0, 0.08);
+    border-radius: 50%;
+}
+.sticker {
+    background: #ffcc00;
+    color: #222;
+    padding: 6px 12px;
+    font-family: 'Fredoka', sans-serif;
+    font-weight: bold;
+    display: inline-block;
+    border-radius: 5px;
+    transform: rotate(-3deg);
+    box-shadow: 2px 2px 0 rgba(0,0,0,0.1);
+}
+
+/* Efecto de flote para el logo */
+.main-image img {
+    animation: float 3s ease-in-out infinite;
+    margin-top: 30px; /* Aumenta este valor si necesitas más espacio */
+    border-radius: 50%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    border: 3px solid var(--verde-manzana); /* Opcional: añade un borde para resaltar el círculo */
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-15px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+/* Configuración de las imágenes de fondo con transparencia */
+.panel-face::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 0.12; /* Ajusta este valor (0.0 a 1.0) para la transparencia */
+    z-index: 0;
+    pointer-events: none; /* Permite que se pueda hacer clic en el texto/botones */
+}
+
+.panel:nth-child(1) .panel-face::before { background-image: url('../assets/img1.jpeg'); }
+.panel:nth-child(2) .panel-face::before { background-image: url('../assets/img2.jpeg'); }
+.panel:nth-child(3) .panel-face::before { background-image: url('../assets/img3.jpeg'); }
